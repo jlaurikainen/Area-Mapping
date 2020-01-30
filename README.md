@@ -1,8 +1,8 @@
 # Area Mapping
-- App for mapping areas using location information.
-- OSM Humanitarian map tiles on Leaflet.js
-- Drawing areas with polyline
+- App for mapping areas using device location information.
+- On demand OSM Humanitarian map tiles on top of Leaflet.js
 
 ## TODO
+- Handling permissions better on first run
 - Saving, editing, deleting areas
-- Exporting
+- Exporting GeoJSON
