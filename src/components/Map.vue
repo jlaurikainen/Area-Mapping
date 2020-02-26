@@ -37,7 +37,8 @@ export default {
   methods: {
     ...mapActions([
       'createMap',
-      'toggleFollow'
+      'toggleFollow',
+      'addLayer'
     ]),
     toggleMapLayerVisibility() {
       if(this.displayLayer) {
@@ -60,9 +61,18 @@ export default {
           zoom: 18,
           zoomControl: false,
           minZoom: 16,
-          maxZoom: 18,
+          maxZoom: 22,
         }), position.coords
       ])
+
+      this.addLayer(
+        [
+          [60.998650, 25.661795],
+          [60.998689, 25.662605],
+          [60.998544, 25.662642],
+          [60.998510, 25.661812]
+        ]
+      )
     })
   }
 }

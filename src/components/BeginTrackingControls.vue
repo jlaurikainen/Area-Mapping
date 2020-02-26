@@ -1,7 +1,6 @@
 <template>
   <div class="tracking-controls">
     <button @click="beginTracking"><i class="material-icons">border_style</i>Track Area</button>
-    <!--button><i class="material-icons">show_chart</i>Track Path</button-->
   </div>
 </template>
 

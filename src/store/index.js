@@ -11,7 +11,8 @@ export default new Vuex.Store({
     latitude: 60.98,
     longitude: 25.66,
     followUser: true,
-    polygons: L.layerGroup()
+    polygons: L.layerGroup(),
+    activePolygon: null
   },
   mutations: {
     INIT_LEAFLET(state, payload) {
@@ -36,6 +37,20 @@ export default new Vuex.Store({
     },
     PUSH_LAYER(state, polygon) {
       state.polygons.addLayer(polygon)
+    },
+    ACTIVATE_POLYGON(state, target) {
+      state.activePolygon = target
+    },
+    DO_POLYGON_EDIT_ACTION(state, action) {
+      state.activePolygon.setStyle({
+        color: '#0000ff'
+      })      
+
+      if(action === 'delete') {
+        state.map.removeLayer(state.activePolygon)
+      }
+
+      state.activePolygon = null;
     }
   },
   actions: {
@@ -56,9 +71,24 @@ export default new Vuex.Store({
     },
     addLayer(state, payload) {
       let polygon = L.polygon(payload, {
-        color: '#2EC4B6'
+        color: '#0000ff'
       })
+
+      polygon.active = false
+
+      polygon.addEventListener('click', (e) => {
+        e.target.active = !e.target.active
+        e.target.setStyle({
+          color: '#00ff00'
+        })
+
+        state.commit('ACTIVATE_POLYGON', e.target)
+      })
+
       state.commit('PUSH_LAYER', polygon)
+    },
+    removeLayerAction(state, payload) {
+      state.commit('DO_POLYGON_EDIT_ACTION', payload)
     }
   }
 })

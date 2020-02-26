@@ -1,8 +1,8 @@
 <template>
-  <div class="drawing-controls">
+  <div class="button-row">
     <button class="shadow-md" @click="addAreaPosition"><i class="material-icons">add_circle_outline</i></button>
-    <button class="shadow-md" @click="cancelDrawing"><i class="material-icons">delete</i></button>
-    <button class="shadow-md" @click="completeDrawing"><i class="material-icons">done</i></button>
+    <button class="shadow-md btn-neg" @click="cancelDrawing"><i class="material-icons">delete</i></button>
+    <button class="shadow-md btn-pos" @click="completeDrawing"><i class="material-icons">done</i></button>
   </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
   methods: {
     ...mapActions([
       'changeAppState',
-      'addLayer'
+      'addLayer',
+      'toggleFollow'
     ]),
     addAreaPosition() {
       if(!this.areaTracked) {
@@ -74,42 +75,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.drawing-controls {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 3rem;
-  z-index: 1000;
-
-  button {
-    padding: 1rem;
-    border: 0px;
-    border-radius: 5px;
-    background: #011627;
-    color: #2EC4B6;
-
-    &:nth-child(2) {
-      background: #E71D36;
-      color: #011627;
-    }
-
-    &:last-child {
-      background: #2EC4B6;
-      color: #011627;
-    }
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-}
-</style>
