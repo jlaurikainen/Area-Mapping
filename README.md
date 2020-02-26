@@ -1,19 +1,8 @@
-# mappelis
+# Area Mapping
+- App for mapping areas using device location information.
+- On demand OSM Humanitarian map tiles on top of Leaflet.js
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## TODO
+- Handling permissions better on first run
+- Saving, editing, deleting areas
+- Exporting GeoJSON
