@@ -4,5 +4,5 @@
 
 ## TODO
 - Handling permissions better on first run
-- Saving, editing, deleting areas
+- Saving, editing, ~~deleting areas~~
 - Exporting GeoJSON
