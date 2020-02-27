@@ -3,6 +3,6 @@
 - On demand OSM Humanitarian map tiles on top of Leaflet.js
 
 ## TODO
-- Handling permissions better on first run
+- ~~Handling permissions better on first run~~
 - Saving, editing, ~~deleting areas~~
 - Exporting GeoJSON
