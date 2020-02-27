@@ -1,7 +1,7 @@
 <template>
   <div class="button-row">
-    <button @click="removePolygon('delete')" class="shadow-md btn-neg"><i class="material-icons">delete</i></button>
-    <button @click="removePolygon('cancel')" class="shadow-md"><i class="material-icons">undo</i></button>
+    <button @click="removePolygon('delete')" class="shadow-md btn btn-neg"><i class="material-icons">delete</i></button>
+    <button @click="removePolygon('cancel')" class="shadow-md btn btn-pos"><i class="material-icons">undo</i></button>
   </div>
 </template>
 

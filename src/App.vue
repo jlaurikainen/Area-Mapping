@@ -101,22 +101,6 @@ export default {
     }
 
     button {
-      padding: 1rem;
-      border: 0px;
-      border-radius: 5px;
-      background: #011627;
-      color: #2EC4B6;
-
-      &.btn-neg {
-        background: #E71D36;
-        color: #011627;
-      }
-
-      &.btn-pos {
-        background: #2EC4B6;
-        color: #011627;
-      }
-
       &:not(:last-child) {
         margin-right: 1rem;
       }
@@ -126,5 +110,23 @@ export default {
       }
     }
   }
+}
+
+.btn {
+  padding: 1rem;
+  border: 0px;
+  border-radius: 5px;
+  background: #011627;
+  color: #2EC4B6;
+}
+
+.btn-neg {
+  background: #E71D36;
+  color: #011627;
+}
+
+.btn-pos {
+  background: #2EC4B6;
+  color: #011627;
 }
 </style>

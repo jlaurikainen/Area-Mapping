@@ -24,9 +24,7 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-geolocation": {},
-      "cordova.plugins.diagnostic": {
-        "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      "cordova.plugins.diagnostic": {}
     },
     "platforms": [
       "android"

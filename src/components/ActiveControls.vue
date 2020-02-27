@@ -1,8 +1,8 @@
 <template>
   <div class="button-row">
-    <button class="shadow-md" @click="addAreaPosition"><i class="material-icons">add_circle_outline</i></button>
-    <button class="shadow-md btn-neg" @click="cancelDrawing"><i class="material-icons">delete</i></button>
-    <button class="shadow-md btn-pos" @click="completeDrawing"><i class="material-icons">done</i></button>
+    <button class="shadow-md btn" @click="addAreaPosition"><i class="material-icons">add_circle_outline</i></button>
+    <button class="shadow-md btn btn-neg" @click="cancelDrawing"><i class="material-icons">delete</i></button>
+    <button class="shadow-md btn btn-pos" @click="completeDrawing"><i class="material-icons">done</i></button>
   </div>
 </template>
 
