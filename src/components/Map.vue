@@ -45,7 +45,15 @@ export default {
     return {
       displayLayer: false,
       permissionStatus: null,
-      canAskPermission: true
+      canAskPermission: true,
+      mapOptions: {
+        center: [60.98, 25.66],
+        attributionControl: false,
+        zoom: 18,
+        zoomControl: false,
+        minZoom: 16,
+        maxZoom: 22
+      }
     }
   },
   computed: {
@@ -83,14 +91,7 @@ export default {
         } else {
           navigator.geolocation.getCurrentPosition((position) => {
             this.createMap([
-              L.map('map', {
-                center: [60.98, 25.66],
-                attributionControl: false,
-                zoom: 18,
-                zoomControl: false,
-                minZoom: 16,
-                maxZoom: 18,
-              }), position.coords
+              L.map('map', this.mapOptions), position.coords
             ])
           })
 
@@ -116,14 +117,7 @@ export default {
 
             navigator.geolocation.getCurrentPosition((position) => {
               this.createMap([
-                L.map('map', {
-                  center: [60.98, 25.66],
-                  attributionControl: false,
-                  zoom: 18,
-                  zoomControl: false,
-                  minZoom: 16,
-                  maxZoom: 18,
-                }), position.coords
+                L.map('map', this.mapOptions), position.coords
               ])
             })
             break;
@@ -146,15 +140,6 @@ export default {
         console.log(error)
       }, cordova.plugins.diagnostic.permission.ACCESS_FINE_LOCATION)
     })
-
-    this.addLayer(
-      [
-        [60.998650, 25.661795],
-        [60.998689, 25.662605],
-        [60.998544, 25.662642],
-        [60.998510, 25.661812]
-      ]
-    )
   }
 }
 </script>

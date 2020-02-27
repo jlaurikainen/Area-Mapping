@@ -21,6 +21,29 @@ export default new Vuex.Store({
       state.latitude = payload[1].latitude
       state.longitude = payload[1].longitude
       state.map.panTo([state.latitude, state.longitude])
+
+      if(localStorage.getItem('areas')) {
+        let areas = JSON.parse(localStorage.getItem('areas'))
+
+        areas.forEach(area => {
+          let polygon = L.polygon(area, {
+            color: '#0000ff'
+          })
+    
+          polygon.active = false
+    
+          polygon.addEventListener('click', (e) => {
+            e.target.active = !e.target.active
+            e.target.setStyle({
+              color: '#00ff00'
+            })
+    
+            state.activePolygon = e.target
+          })
+
+          state.polygons.addLayer(polygon)
+        })
+      }
     },
     NEW_MESSAGE(state, message) {
       state.messages.push(message);
@@ -37,6 +60,14 @@ export default new Vuex.Store({
     },
     PUSH_LAYER(state, polygon) {
       state.polygons.addLayer(polygon)
+
+      let areas = []
+
+      state.polygons.eachLayer((layer) => {
+        areas.push(layer.getLatLngs())
+      })
+
+      localStorage.setItem('areas', JSON.stringify(areas))
     },
     ACTIVATE_POLYGON(state, target) {
       state.activePolygon = target
@@ -47,7 +78,15 @@ export default new Vuex.Store({
       })      
 
       if(action === 'delete') {
-        state.map.removeLayer(state.activePolygon)
+        state.polygons.removeLayer(state.activePolygon)
+
+        let areas = []
+
+        state.polygons.eachLayer((layer) => {
+          areas.push(layer.getLatLngs())
+        })
+
+        localStorage.setItem('areas', JSON.stringify(areas))
       }
 
       state.activePolygon = null;
